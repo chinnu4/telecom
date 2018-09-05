@@ -1,0 +1,62 @@
+
+mysql> create table operator2(plan_name varchar(10),monthly_rental int(5),free_internet varchar(3),free_calls varchar(3),free_sms varchar(3),call_charges varchar(10),sms_charges varchar(10),data_charges varchar(10),roaming_charges varchar(10));
+Query OK, 0 rows affected (0.12 sec)
+
+mysql> INSERT INTO `operator2` (`plan_name`,'monthly_rental','free_internet','free_calls','free_sms','call_charges',`sms_charges`,`data_charges`,`roaming_charges`) VALUES ('sam',199,'y','y','y','1 p/sec','1 r/msg','10 p/sec','1 r/sec');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''monthly_rental','free_internet','free_calls','free_sms','call_charges',`sms_cha' at line 1
+mysql> INSERT INTO `operator2` (`,`gender`,`physical_address`,`contact_number`) VALUES ('
+    `> ;
+    `> /c
+    `> \c
+    `> \c
+    `> ^Z^C
+mysql> INSERT INTO `operator2` (`plan_name',`monthly_rental`,`free_internet`,`free_calls`) VALUES ('sam',199,'y','y');
+    `> ^C
+mysql> INSERT INTO `operator2` (`plan_name',`monthly_rental`,`free_internet`,`free_calls`) VALUES ('sam',199,'y','y');
+    `> INSERT INTO `operator2` (`plan_name',`monthly_rental`,`free_internet`,`free_calls`) VALUES ('sam',199,'y','y');
+    '> ^C
+mysql> INSERT INTO `operator2` (`plan_name`,`monthly_rental`,`free_internet`,`free_calls`) VALUES ('sam',199,'y','y');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO `operator2` (`plan_name`,`monthly_rental`,`free_internet`,`free_calls`) VALUES ('hi',299,'y','y');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> INSERT INTO `operator2` (`plan_name`,`monthly_rental`,`free_internet`,`free_sms`) VALUES ('hello',299,'y','y');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> INSERT INTO `operator2` (`plan_name`,`monthly_rental`,`free_internet`,`free_sms`) VALUES ('hello',219,'y','y');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO `operator2` (`plan_name`,`monthly_rental`,`free_internet`,`free_sms`) VALUES ('hello',219,'n','n');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO `operator2` (`plan_name`,`monthly_rental`,`free_internet`,`free_sms`) VALUES ('hi',219,'n','n');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> INSERT INTO `operator2` (`plan_name`,`monthly_rental`,`free_internet`,`free_calls`) VALUES ('sam',219,'n','n');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> SELECT * from operator2;
++-----------+----------------+---------------+------------+----------+--------------+-------------+--------------+-----------------+
+| plan_name | monthly_rental | free_internet | free_calls | free_sms | call_charges | sms_charges | data_charges | roaming_charges |
++-----------+----------------+---------------+------------+----------+--------------+-------------+--------------+-----------------+
+| sam       |            199 | y             | y          | NULL     | NULL         | NULL        | NULL         | NULL            |
+| hi        |            299 | y             | y          | NULL     | NULL         | NULL        | NULL         | NULL            |
+| hello     |            299 | y             | NULL       | y        | NULL         | NULL        | NULL         | NULL            |
+| hello     |            219 | y             | NULL       | y        | NULL         | NULL        | NULL         | NULL            |
+| hello     |            219 | n             | NULL       | n        | NULL         | NULL        | NULL         | NULL            |
+| hi        |            219 | n             | NULL       | n        | NULL         | NULL        | NULL         | NULL            |
+| sam       |            219 | n             | n          | NULL     | NULL         | NULL        | NULL         | NULL            |
++-----------+----------------+---------------+------------+----------+--------------+-------------+--------------+-----------------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT * from operator2 where monthly_rental=199;
++-----------+----------------+---------------+------------+----------+--------------+-------------+--------------+-----------------+
+| plan_name | monthly_rental | free_internet | free_calls | free_sms | call_charges | sms_charges | data_charges | roaming_charges |
++-----------+----------------+---------------+------------+----------+--------------+-------------+--------------+-----------------+
+| sam       |            199 | y             | y          | NULL     | NULL         | NULL        | NULL         | NULL            |
++-----------+----------------+---------------+------------+----------+--------------+-------------+--------------+-----------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * from operator2 where monthly_rental=199 and free_calls='n';
+Empty set (0.00 sec)
